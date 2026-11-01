@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Un verano contigo | Mamma Mia!</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --azul: #286b83;
+    --azul-oscuro: #153f50;
+    --azul-claro: #dceff0;
+    --crema: #fffaf0;
+    --amarillo: #f4d77b;
+    --rosa: #e8a9a1;
+    --verde: #718d77;
+    --blanco: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--crema);
+    color: var(--azul-oscuro);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* INTRODUCCIÓN */
+
+.introduccion {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background:
+        linear-gradient(#153f5070, #153f5080),
+        url('https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1800')
+        center/cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+    transition: 1s;
+}
+
+.introduccion.cerrar {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.sobre {
+    background: var(--crema);
+    max-width: 430px;
+    width: 100%;
+    padding: 50px 30px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 0 20px 80px #0005;
+    animation: aparecer 1.5s;
+}
+
+.sobre-icono {
+    font-size: 65px;
+    margin-bottom: 20px;
+}
+
+.sobre small {
+    letter-spacing: 4px;
+    color: var(--azul);
+}
+
+.sobre h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 43px;
+    margin: 20px 0;
+}
+
+.sobre p {
+    line-height: 1.9;
+    color: #74868a;
+    margin-bottom: 25px;
+}
+
+.boton {
+    background: var(--azul);
+    color: white;
+    border: none;
+    border-radius: 40px;
+    padding: 15px 30px;
+    transition: .3s;
+}
+
+.boton:hover {
+    background: var(--azul-oscuro);
+    transform: translateY(-3px);
+}
+
+/* NAVEGACIÓN */
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 17px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fffaf0e8;
+    backdrop-filter: blur(15px);
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: var(--rosa);
+}
+
+.menu {
+    display: flex;
+    gap: 25px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--azul-oscuro);
+    font-size: 11px;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.menu a:hover {
+    color: var(--rosa);
+}
+
+.menu-movil {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 26px;
+    color: var(--azul);
+}
+
+/* PORTADA */
+
+.portada {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 130px 20px 90px;
+
+    background:
+        linear-gradient(#153f5055, #153f5070),
+        url('https://images.unsplash.com/photo-1533105079780-92b9be482077?w=2000')
+        center/cover;
+
+    position: relative;
+}
+
+.portada-contenido {
+    max-width: 800px;
+    animation: aparecer 2s;
+}
+
+.portada small {
+    letter-spacing: 6px;
+    font-size: 11px;
+}
+
+.portada h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(65px, 12vw, 125px);
+    line-height: 1;
+    margin: 30px 0;
+}
+
+.portada h1 span {
+    color: var(--amarillo);
+    font-style: italic;
+}
+
+.portada p {
+    letter-spacing: 3px;
+    font-size: 12px;
+    margin-bottom: 35px;
+}
+
+.indicador {
+    position: absolute;
+    bottom: 30px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    animation: flotar 2s infinite;
+}
+
+@keyframes flotar {
+    50% { transform: translateY(10px); }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* GENERAL */
+
+section {
+    padding: 110px 8%;
+}
+
+.encabezado {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.encabezado small {
+    color: var(--azul);
+    letter-spacing: 5px;
+    font-size: 10px;
+}
+
+.encabezado h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(37px, 6vw, 65px);
+    margin-top: 18px;
+}
+
+.encabezado p {
+    margin-top: 15px;
+    color: #829397;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* BIENVENIDA */
+
+.bienvenida {
+    background: var(--crema);
+    text-align: center;
+}
+
+.bienvenida-texto {
+    max-width: 750px;
+    margin: auto;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 4vw, 32px);
+    line-height: 1.9;
+}
+
+.bienvenida-texto span {
+    color: var(--azul);
+    font-style: italic;
+}
+
+/* MAPA */
+
+.mapa {
+    background: var(--azul-claro);
+}
+
+.mapa-contenedor {
+    max-width: 1000px;
+    margin: auto;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    min-height: 480px;
+
+    background:
+        linear-gradient(#286b8330, #286b8340),
+        url('https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1500')
+        center/cover;
+}
+
+.mapa-titulo {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    background: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-family: 'Playfair Display', serif;
+}
+
+.punto {
+    position: absolute;
+    border: none;
+    border-radius: 50px;
+    background: white;
+    color: var(--azul-oscuro);
+    padding: 13px 18px;
+    box-shadow: 0 5px 20px #0003;
+    font-size: 12px;
+    transition: .3s;
+    animation: pulso 2s infinite;
+}
+
+.punto:hover {
+    transform: scale(1.15);
+    background: var(--amarillo);
+}
+
+.punto1 { top: 32%; left: 12%; }
+.punto2 { top: 58%; left: 38%; }
+.punto3 { top: 30%; right: 12%; }
+.punto4 { bottom: 15%; right: 15%; }
+.punto5 { bottom: 15%; left: 12%; }
+
+@keyframes pulso {
+    50% { box-shadow: 0 5px 25px #ffffffcc; }
+}
+
+.mapa-mensaje {
+    display: none;
+    margin: 25px auto 0;
+    max-width: 600px;
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    line-height: 1.7;
+    animation: aparecer .5s;
+}
+
+.mapa-mensaje.visible {
+    display: block;
+}
+
+/* GALERÍA */
+
+.galeria {
+    background: white;
+}
+
+.fotos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.foto {
+    background: white;
+    padding: 12px 12px 25px;
+    box-shadow: 0 8px 30px #00000012;
+    transform: rotate(-2deg);
+    transition: .4s;
+    cursor: pointer;
+}
+
+.foto:nth-child(2) {
+    transform: rotate(2deg);
+}
+
+.foto:nth-child(3) {
+    transform: rotate(-1deg);
+}
+
+.foto:hover {
+    transform: rotate(0) translateY(-10px);
+}
+
+.foto img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.foto h3 {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    margin-top: 18px;
+    font-size: 21px;
+}
+
+.foto p {
+    text-align: center;
+    color: #8a999c;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+/* VISOR FOTOGRÁFICO */
+
+.visor {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    background: #000e;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.visor.visible {
+    display: flex;
+}
+
+.visor img {
+    max-width: 90%;
+    max-height: 85vh;
+    object-fit: contain;
+    border: 8px solid white;
+}
+
+.cerrar-visor {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    color: white;
+    background: none;
+    border: none;
+    font-size: 35px;
+}
+
+/* RAZONES */
+
+.razones {
+    background: var(--crema);
+}
+
+.tarjetas-razones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.razon {
+    min-height: 220px;
+    border: none;
+    border-radius: 15px;
+    background: var(--azul-claro);
+    padding: 25px;
+    text-align: center;
+    transition: .4s;
+}
+
+.razon:hover {
+    transform: translateY(-7px);
+}
+
+.razon .icono {
+    font-size: 38px;
+}
+
+.razon h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    margin: 15px 0;
+}
+
+.razon p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: #637e85;
+}
+
+/* MÚSICA */
+
+.musica {
+    background: var(--azul);
+    color: white;
+    text-align: center;
+}
+
+.musica .encabezado small {
+    color: var(--amarillo);
+}
+
+.musica .encabezado p {
+    color: #dceff0;
+}
+
+.disco {
+    font-size: 95px;
+    margin: 25px;
+    animation: girar 12s linear infinite;
+}
+
+@keyframes girar {
+    to { transform: rotate(360deg); }
+}
+
+.lista-canciones {
+    max-width: 550px;
+    margin: auto;
+}
+
+.cancion {
+    padding: 20px;
+    border-bottom: 1px solid #ffffff40;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    gap: 10px;
+}
+
+.cancion a {
+    color: var(--amarillo);
+    text-decoration: none;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.cancion a:hover {
+    text-decoration: underline;
+}
+
+/* JUEGO */
+
+.juego {
+    background: var(--amarillo);
+    text-align: center;
+}
+
+.juego-caja {
+    background: white;
+    max-width: 650px;
+    margin: auto;
+    padding: 45px 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 50px #00000010;
+}
+
+.juego-caja h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 29px;
+    margin-bottom: 25px;
+}
+
+.respuestas {
+    display: grid;
+    gap: 12px;
+}
+
+.respuesta {
+    padding: 15px;
+    border: 1px solid #d5e2e3;
+    background: white;
+    border-radius: 10px;
+    transition: .3s;
+}
+
+.respuesta:hover {
+    background: var(--azul-claro);
+}
+
+.resultado {
+    margin-top: 25px;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.progreso {
+    height: 7px;
+    background: #eee;
+    margin: 25px 0;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progreso-barra {
+    height: 100%;
+    background: var(--azul);
+    width: 0%;
+    transition: .4s;
+}
+
+/* CAJA MISTERIOSA */
+
+.regalo {
+    background: var(--azul-claro);
+    text-align: center;
+}
+
+.caja-regalo {
+    font-size: 110px;
+    display: inline-block;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.caja-regalo:hover {
+    transform: scale(1.15) rotate(10deg);
+}
+
+.mensaje-regalo {
+    display: none;
+    max-width: 600px;
+    margin: 30px auto;
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    font-family: 'Playfair Display', serif;
+    font-size: 23px;
+    line-height: 1.8;
+}
+
+.mensaje-regalo.visible {
+    display: block;
+    animation: aparecer .7s;
+}
+
+/* CARTA */
+
+.carta {
+    background: #f5e9db;
+    text-align: center;
+}
+
+.papel {
+    max-width: 700px;
+    margin: auto;
+    background: #fffdf8;
+    padding: 60px 40px;
+    box-shadow: 0 15px 60px #00000012;
+    transform: rotate(-1deg);
+}
+
+.papel h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 39px;
+    margin-bottom: 30px;
+}
+
+.papel p {
+    white-space: pre-line;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    line-height: 2;
+    color: #627b80;
+}
+
+.firma {
+    color: var(--azul);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 27px;
+    margin-top: 30px;
+}
+
+/* FINAL */
+
+.final {
+    background: var(--azul-oscuro);
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.final h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 8vw, 75px);
+    margin: 20px 0;
+}
+
+.final p {
+    letter-spacing: 4px;
+    font-size: 11px;
+}
+
+footer {
+    background: #102f3c;
+    color: #ffffffaa;
+    text-align: center;
+    padding: 25px;
+    font-size: 11px;
+}
+
+/* CORAZONES */
+
+.corazon {
+    position: fixed;
+    pointer-events: none;
+    z-index: 6000;
+    animation: subir 3s forwards;
+}
+
+@keyframes subir {
+    to {
+        transform: translateY(-250px) rotate(30deg);
+        opacity: 0;
+    }
+}
+
+/* MÓVILES */
+
+@media(max-width: 800px) {
+
+    .menu {
+        display: none;
+        position: absolute;
+        top: 65px;
+        right: 0;
+        background: var(--crema);
+        width: 100%;
+        padding: 25px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .menu.activo {
+        display: flex;
+    }
+
+    .menu-movil {
+        display: block;
+    }
+
+    .fotos {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+    }
+
+    .foto {
+        transform: none !important;
+    }
+
+    .tarjetas-razones {
+        grid-template-columns: 1fr;
+    }
+
+    .mapa-contenedor {
+        min-height: 500px;
+    }
+
+    .punto {
+        font-size: 10px;
+        padding: 10px;
+    }
+
+    section {
+        padding: 80px 7%;
+    }
+
+    .papel {
+        padding: 35px 20px;
+    }
+
+    .papel h2 {
+        font-size: 30px;
+    }
+
+    .papel p {
+        font-size: 16px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- INVITACIÓN -->
+
+<div class="introduccion" id="introduccion">
+
+    <div class="sobre">
+
+        <div class="sobre-icono">💌</div>
+
+        <small>UNA INVITACIÓN MUY ESPECIAL</small>
+
+        <h1>¡Mamma Mia!</h1>
+
+        <p>
+            Hay un lugar en el Mediterráneo
+            donde te espera una aventura.
+
+            <br><br>
+
+            Pero esta vez la protagonista eres tú.
+        </p>
+
+        <button class="boton" onclick="empezar()">
+            ABRIR MI INVITACIÓN ♥
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- MENÚ -->
+
+<nav>
+
+    <div class="logo">Mamma Mia <span>♥</span></div>
+
+    <div class="menu" id="menu">
+
+        <a href="#inicio">INICIO</a>
+        <a href="#mapa">LA ISLA</a>
+        <a href="#galeria">RECUERDOS</a>
+        <a href="#razones">NOSOTRAS</a>
+        <a href="#musica">MÚSICA</a>
+        <a href="#juego">JUEGO</a>
+        <a href="#regalo">SORPRESA</a>
+        <a href="#carta">CARTA</a>
+
+    </div>
+
+    <button class="menu-movil" onclick="menuMovil()">☰</button>
+
+</nav>
+
+
+<!-- PORTADA -->
+
+<header class="portada" id="inicio">
+
+    <div class="portada-contenido">
+
+        <small>BIENVENIDA A NUESTRO PEQUEÑO PARAÍSO</small>
+
+        <h1>Mamma <span>Mia!</span></h1>
+
+        <p>GRECIA · VERANO · MÚSICA · AMOR</p>
+
+        <a href="#bienvenida">
+            <button class="boton">
+                COMENZAR LA AVENTURA ↓
+            </button>
+        </a>
+
+    </div>
+
+    <div class="indicador">
+        DESCUBRE LO QUE TE ESPERA ↓
+    </div>
+
+</header>
+
+
+<!-- BIENVENIDA -->
+
+<section class="bienvenida" id="bienvenida">
+
+    <div class="encabezado">
+
+        <small>UN LUGAR PARA DOS</small>
+
+        <h2>Un verano diferente...</h2>
+
+    </div>
+
+    <div class="bienvenida-texto">
+
+        Hay lugares que son especiales por sus paisajes,
+        sus playas y sus atardeceres.
+
+        <br><br>
+
+        Pero hay personas que consiguen que cualquier
+        lugar se convierta en el más bonito del mundo.
+
+        <br><br>
+
+        <span>Para mí, esa persona eres tú.</span>
+
+    </div>
+
+</section>
+
+
+<!-- MAPA INTERACTIVO -->
+
+<section class="mapa" id="mapa">
+
+    <div class="encabezado">
+
+        <small>EXPLORA NUESTRO PARAÍSO</small>
+
+        <h2>El mapa de nuestra isla</h2>
+
+        <p>
+            Hay cinco lugares escondidos.
+            Pulsa sobre ellos y descubre qué guardan.
+        </p>
+
+    </div>
+
+    <div class="mapa-contenedor">
+
+        <div class="mapa-titulo">
+            🏝️ Nuestra pequeña isla
+        </div>
+
+        <button class="punto punto1"
+        onclick="mostrarLugar(1)">
+            🏡 Nuestra casa
+        </button>
+
+        <button class="punto punto2"
+        onclick="mostrarLugar(2)">
+            🌺 El jardín
+        </button>
+
+        <button class="punto punto3"
+        onclick="mostrarLugar(3)">
+            🏖️ La playa
+        </button>
+
+        <button class="punto punto4"
+        onclick="mostrarLugar(4)">
+            ⛵ El puerto
+        </button>
+
+        <button class="punto punto5"
+        onclick="mostrarLugar(5)">
+            💎 El tesoro
+        </button>
+
+    </div>
+
+    <div class="mapa-mensaje" id="mapaMensaje"></div>
+
+</section>
+
+
+<!-- GALERÍA -->
+
+<section class="galeria" id="galeria">
+
+    <div class="encabezado">
+
+        <small>PEQUEÑOS INSTANTES, GRANDES RECUERDOS</small>
+
+        <h2>Nuestra historia</h2>
+
+        <p>
+            Cada fotografía guarda un pedacito de nosotras.
+            Pulsa sobre ellas para verlas más grandes.
+        </p>
+
+    </div>
+
+    <div class="fotos">
+
+        <div class="foto"
+        onclick="abrirFoto('fotos/foto1.jpg')">
+
+            <img src="fotos/foto1.jpg" alt="Nuestro primer recuerdo">
+
+            <h3>Nuestro comienzo</h3>
+
+            <p>Y todo lo que vino después...</p>
+
+        </div>
+
+        <div class="foto"
+        onclick="abrirFoto('fotos/foto2.jpg')">
+
+            <img src="fotos/foto2.jpg" alt="Nuestra aventura">
+
+            <h3>Nuestras aventuras</h3>
+
+            <p>Contigo cualquier lugar es especial.</p>
+
+        </div>
+
+        <div class="foto"
+        onclick="abrirFoto('fotos/foto3.jpg')">
+
+            <img src="fotos/foto3.jpg" alt="Nuestro momento favorito">
+
+            <h3>Mi persona favorita</h3>
+
+            <p>Siempre tú.</p>
+
+        </div>
+
+        <div class="foto"
+        onclick="abrirFoto('fotos/foto4.jpg')">
+
+            <img src="fotos/foto4.jpg" alt="Otro recuerdo juntas">
+
+            <h3>Momentos únicos</h3>
+
+            <p>De esos que no se olvidan.</p>
+
+        </div>
+
+        <div class="foto"
+        onclick="abrirFoto('fotos/foto5.jpg')">
+
+            <img src="fotos/foto5.jpg" alt="Una fotografía especial">
+
+            <h3>Nosotras</h3>
+
+            <p>Mi lugar favorito.</p>
+
+        </div>
+
+        <div class="foto"
+        onclick="abrirFoto('fotos/foto6.jpg')">
+
+            <img src="fotos/foto6.jpg" alt="Nuestro recuerdo especial">
+
+            <h3>Y muchos más...</h3>
+
+            <p>Esto no ha hecho más que empezar.</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- VISOR -->
+
+<div class="visor" id="visor"
+onclick="cerrarFoto()">
+
+    <button class="cerrar-visor"
+    onclick="cerrarFoto()">×</button>
+
+    <img id="fotoGrande" src="" alt="Fotografía ampliada">
+
+</div>
+
+
+<!-- RAZONES -->
+
+<section class="razones" id="razones">
+
+    <div class="encabezado">
+
+        <small>SIEMPRE HAY UN MOTIVO</small>
+
+        <h2>¿Por qué tú?</h2>
+
+        <p>
+            Pulsa las tarjetas para descubrir
+            algunas de las razones.
+        </p>
+
+    </div>
+
+    <div class="tarjetas-razones">
+
+        <button class="razon"
+        onclick="revelarRazon(this, 0)">
+
+            <div class="icono">☀️</div>
+
+            <h3>Tu sonrisa</h3>
+
+            <p>Pulsa para descubrir...</p>
+
+        </button>
+
+        <button class="razon"
+        onclick="revelarRazon(this, 1)">
+
+            <div class="icono">💙</div>
+
+            <h3>Tu personalidad</h3>
+
+            <p>Pulsa para descubrir...</p>
+
+        </button>
+
+        <button class="razon"
+        onclick="revelarRazon(this, 2)">
+
+            <div class="icono">🌷</div>
+
+            <h3>Los pequeños detalles</h3>
+
+            <p>Pulsa para descubrir...</p>
+
+        </button>
+
+        <button class="razon"
+        onclick="revelarRazon(this, 3)">
+
+            <div class="icono">✨</div>
+
+            <h3>Nuestras tonterías</h3>
+
+            <p>Pulsa para descubrir...</p>
+
+        </button>
+
+        <button class="razon"
+        onclick="revelarRazon(this, 4)">
+
+            <div class="icono">🌊</div>
+
+            <h3>Tu compañía</h3>
+
+            <p>Pulsa para descubrir...</p>
+
+        </button>
+
+        <button class="razon"
+        onclick="revelarRazon(this, 5)">
+
+            <div class="icono">❤️</div>
+
+            <h3>Tú, simplemente tú</h3>
+
+            <p>Pulsa para descubrir...</p>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- MÚSICA -->
+
+<section class="musica" id="musica">
+
+    <div class="encabezado">
+
+        <small>LA BANDA SONORA DE NUESTRA HISTORIA</small>
+
+        <h2>¡Gracias por la música!</h2>
+
+        <p>
+            Porque toda gran historia merece
+            una banda sonora.
+        </p>
+
+    </div>
+
+    <div class="disco">💿</div>
+
+    <div class="lista-canciones">
+
+        <div class="cancion">
+            <span>01. Dancing Queen</span>
+            <a href="https://www.youtube.com/results?search_query=ABBA+Dancing+Queen+official"
+            target="_blank">ESCUCHAR ↗</a>
+        </div>
+
+        <div class="cancion">
+            <span>02. Mamma Mia</span>
+            <a href="https://www.youtube.com/results?search_query=ABBA+Mamma+Mia+official"
+            target="_blank">ESCUCHAR ↗</a>
+        </div>
+
+        <div class="cancion">
+            <span>03. Lay All Your Love on Me</span>
+            <a href="https://www.youtube.com/results?search_query=ABBA+Lay+All+Your+Love+On+Me"
+            target="_blank">ESCUCHAR ↗</a>
+        </div>
+
+        <div class="cancion">
+            <span>04. Super Trouper</span>
+            <a href="https://www.youtube.com/results?search_query=ABBA+Super+Trouper"
+            target="_blank">ESCUCHAR ↗</a>
+        </div>
+
+        <div class="cancion">
+            <span>05. I Have a Dream</span>
+            <a href="https://www.youtube.com/results?search_query=ABBA+I+Have+A+Dream"
+            target="_blank">ESCUCHAR ↗</a>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- JUEGO -->
+
+<section class="juego" id="juego">
+
+    <div class="encabezado">
+
+        <small>¿CUÁNTO NOS CONOCEMOS?</small>
+
+        <h2>Un pequeño juego</h2>
+
+        <p>
+            A ver cuánto sabes sobre nuestra historia.
+        </p>
+
+    </div>
+
+    <div class="juego-caja">
+
+        <h3 id="pregunta">
+            ¿Preparada para jugar?
+        </h3>
+
+        <div class="progreso">
+            <div class="progreso-barra"
+            id="barra"></div>
+        </div>
+
+        <div class="respuestas" id="respuestas">
+
+            <button class="boton"
+            onclick="iniciarJuego()">
+                ¡EMPEZAR! ❤️
+            </button>
+
+        </div>
+
+        <div class="resultado" id="resultado"></div>
+
+    </div>
+
+</section>
+
+
+<!-- REGALO -->
+
+<section class="regalo" id="regalo">
+
+    <div class="encabezado">
+
+        <small>HAS ENCONTRADO ALGO</small>
+
+        <h2>La caja misteriosa</h2>
+
+        <p>
+            Hay algo que todavía no te he contado...
+        </p>
+
+    </div>
+
+    <div class="caja-regalo"
+    onclick="abrirRegalo()"
+    id="cajaRegalo">
+
+        🎁
+
+    </div>
+
+    <p>TOCA EL REGALO PARA DESCUBRIRLO</p>
+
+    <div class="mensaje-regalo"
+    id="mensajeRegalo">
+
+        <h3>¡SORPRESA! ❤️</h3>
+
+        <br>
+
+        Aquí puedes escribir la sorpresa
+        que tienes preparada.
+
+        <br><br>
+
+        Por ejemplo: una escapada, una cena,
+        una experiencia juntas o un viaje.
+
+    </div>
+
+</section>
+
+
+<!-- CARTA -->
+
+<section class="carta" id="carta">
+
+    <div class="encabezado">
+
+        <small>EL ÚLTIMO CAPÍTULO</small>
+
+        <h2>Una carta para ti</h2>
+
+    </div>
+
+    <div class="papel">
+
+        <div style="font-size:45px">💌</div>
+
+        <h2>Para mi persona favorita</h2>
+
+        <p id="textoCarta">
+
+Hay personas que llegan a tu vida
+y consiguen cambiar la forma en la que ves el mundo.
+
+Tú eres una de ellas.
+
+Gracias por cada momento,
+cada risa, cada abrazo,
+cada aventura y cada pequeño detalle.
+
+No sé cuántos lugares nos quedan por descubrir,
+cuántas canciones nos quedan por cantar
+ni cuántas historias nos quedan por vivir.
+
+Pero hay algo que tengo claro:
+
+Quiero seguir compartiéndolos contigo.
+
+Porque si algo tengo claro,
+es que volvería a elegirte.
+
+        </p>
+
+        <div class="firma">
+            Te quiero. Siempre. ❤️
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FINAL -->
+
+<section class="final">
+
+    <div style="font-size:50px">🇬🇷</div>
+
+    <h2>Siempre nosotras.</h2>
+
+    <p>UN PEQUEÑO PARAÍSO, UNA GRAN HISTORIA.</p>
+
+</section>
+
+
+<footer>
+
+    HECHO CON TODO EL AMOR DEL MUNDO ♥
+    <br>
+    MAMMA MIA · NUESTRA HISTORIA
+
+</footer>
+
+
+<script>
+
+/* ABRIR INVITACIÓN */
+
+function empezar() {
+
+    document.getElementById("introduccion")
+    .classList.add("cerrar");
+
+    corazones();
+
+}
+
+
+/* MENÚ MÓVIL */
+
+function menuMovil() {
+
+    document.getElementById("menu")
+    .classList.toggle("activo");
+
+}
+
+document.querySelectorAll(".menu a")
+.forEach(enlace => {
+
+    enlace.addEventListener("click", () => {
+
+        document.getElementById("menu")
+        .classList.remove("activo");
+
+    });
+
+});
+
+
+/* MAPA */
+
+const lugares = {
+
+    1: "🏡 Nuestra casa: porque no importa dónde estemos, hogar siempre será donde podamos estar juntas.",
+
+    2: "🌺 El jardín: quiero seguir llenando nuestra historia de pequeños momentos que se conviertan en grandes recuerdos.",
+
+    3: "🏖️ La playa: miles de atardeceres, viajes improvisados y aventuras que todavía nos quedan por vivir.",
+
+    4: "⛵ El puerto: no importa cuántos caminos nos encontremos, siempre quiero seguir descubriendo el mundo contigo.",
+
+    5: "💎 El tesoro: ¿buscabas algo especial? Ya lo has encontrado. Eres tú."
+
+};
+
+function mostrarLugar(numero) {
+
+    const mensaje = document.getElementById("mapaMensaje");
+
+    mensaje.innerHTML = lugares[numero];
+
+    mensaje.classList.remove("visible");
+
+    void mensaje.offsetWidth;
+
+    mensaje.classList.add("visible");
+
+    corazones();
+
+    mensaje.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+}
+
+
+/* GALERÍA */
+
+function abrirFoto(ruta) {
+
+    document.getElementById("fotoGrande").src = ruta;
+
+    document.getElementById("visor")
+    .classList.add("visible");
+
+}
+
+function cerrarFoto() {
+
+    document.getElementById("visor")
+    .classList.remove("visible");
+
+}
+
+
+/* RAZONES */
+
+const razones = [
+
+    "Porque tu sonrisa tiene la capacidad de mejorar hasta mis días más complicados.",
+
+    "Porque me encanta tu manera de ser y todas esas pequeñas cosas que te hacen única.",
+
+    "Porque haces que los pequeños detalles tengan un valor enorme.",
+
+    "Porque contigo puedo reírme de cualquier tontería y ser completamente yo.",
+
+    "Porque incluso los días más normales son especiales cuando los comparto contigo.",
+
+    "Porque no necesito una razón concreta para elegirte. Simplemente eres tú."
+
+];
+
+function revelarRazon(elemento, numero) {
+
+    const parrafo = elemento.querySelector("p");
+
+    parrafo.innerText = razones[numero];
+
+    corazones();
+
+}
+
+
+/* JUEGO */
+
+const preguntas = [
+
+    {
+        pregunta: "¿Qué es lo que más me gusta de estar contigo?",
+        opciones: [
+            "Las pequeñas cosas del día a día",
+            "Viajar sin parar",
+            "Ver películas"
+        ],
+        correcta: 0
+    },
+
+    {
+        pregunta: "¿Qué prefiero para una aventura juntas?",
+        opciones: [
+            "Quedarme en casa",
+            "Descubrir un lugar nuevo",
+            "Ir de compras"
+        ],
+        correcta: 1
+    },
+
+    {
+        pregunta: "¿Qué nunca puede faltar en nuestra historia?",
+        opciones: [
+            "Las risas",
+            "Las discusiones",
+            "Los horarios"
+        ],
+        correcta: 0
+    },
+
+    {
+        pregunta: "¿Qué elegiría mil veces?",
+        opciones: [
+            "Una vida aburrida",
+            "Una aventura contigo",
+            "No hacer nada"
+        ],
+        correcta: 1
+    }
+
+];
+
+let preguntaActual = 0;
+let puntuacion = 0;
+
+function iniciarJuego() {
+
+    preguntaActual = 0;
+    puntuacion = 0;
+
+    mostrarPregunta();
+
+}
+
+function mostrarPregunta() {
+
+    if (preguntaActual >= preguntas.length) {
+
+        terminarJuego();
+
+        return;
+
+    }
+
+    const actual = preguntas[preguntaActual];
+
+    document.getElementById("pregunta")
+    .innerText = actual.pregunta;
+
+    document.getElementById("barra")
+    .style.width =
+    (preguntaActual / preguntas.length * 100) + "%";
+
+    const contenedor =
+    document.getElementById("respuestas");
+
+    contenedor.innerHTML = "";
+
+    actual.opciones.forEach((opcion, indice) => {
+
+        const boton = document.createElement("button");
+
+        boton.className = "respuesta";
+
+        boton.innerText = opcion;
+
+        boton.onclick = () => comprobar(indice);
+
+        contenedor.appendChild(boton);
+
+    });
+
+}
+
+function comprobar(indice) {
+
+    const correcta =
+    preguntas[preguntaActual].correcta;
+
+    const botones =
+    document.querySelectorAll(".respuesta");
+
+    botones.forEach(boton => boton.disabled = true);
+
+    if (indice === correcta) {
+
+        puntuacion++;
+
+        document.getElementById("resultado")
+        .innerText = "¡Muy bien! ❤️";
+
+    } else {
+
+        document.getElementById("resultado")
+        .innerText = "¡Casi! Pero siempre hay algo que aprender de nosotras. 💙";
+
+    }
+
+    preguntaActual++;
+
+    setTimeout(mostrarPregunta, 1300);
+
+}
+
+function terminarJuego() {
+
+    document.getElementById("barra")
+    .style.width = "100%";
+
+    document.getElementById("pregunta")
+    .innerText = "¡Has terminado!";
+
+    document.getElementById("respuestas")
+    .innerHTML = `
+        <h2>${puntuacion} / ${preguntas.length} ❤️</h2>
+
+        <button class="boton" onclick="iniciarJuego()">
+        VOLVER A JUGAR
+        </button>
+    `;
+
+    document.getElementById("resultado")
+    .innerText =
+    "Pero la respuesta correcta siempre será que nuestra historia es la mejor.";
+
+    corazones();
+
+}
+
+
+/* REGALO */
+
+function abrirRegalo() {
+
+    const mensaje =
+    document.getElementById("mensajeRegalo");
+
+    mensaje.classList.toggle("visible");
+
+    document.getElementById("cajaRegalo")
+    .innerText = "🎉";
+
+    corazones();
+
+}
+
+
+/* CORAZONES */
+
+function corazones() {
+
+    const simbolos = ["💙", "🤍", "💗", "✨", "🌸"];
+
+    for (let i = 0; i < 18; i++) {
+
+        const corazon = document.createElement("div");
+
+        corazon.className = "corazon";
+
+        corazon.innerText =
+        simbolos[Math.floor(Math.random() * simbolos.length)];
+
+        corazon.style.left = Math.random() * 100 + "vw";
+
+        corazon.style.top = (50 + Math.random() * 40) + "vh";
+
+        corazon.style.fontSize =
+        (15 + Math.random() * 20) + "px";
+
+        document.body.appendChild(corazon);
+
+        setTimeout(() => corazon.remove(), 3000);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
